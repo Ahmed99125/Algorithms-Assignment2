@@ -152,7 +152,7 @@ void Heap<T>::heapifyUp(int index) {
 template <class T>
 void Heap<T>::heapifyUpMax(int index) {
     int parent = (index - 1) / 2;
-    while (index > 0 && compare(array[parent] > array[index])) {
+    while (index > 0 && compare(array[parent], array[index])) {
         std::swap(array[index], array[parent]);
         index = parent;
         parent = (index - 1) / 2;
