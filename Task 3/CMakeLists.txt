@@ -8,4 +8,4 @@ include_directories(.)
 add_executable(Task_3
         Heap.h
         main.cpp
-        HeapSort.h)
+)

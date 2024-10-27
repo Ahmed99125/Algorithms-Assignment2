@@ -23,27 +23,69 @@ protected:
     void heapifyUpMax(int index);
     void heapifyUpMin(int index);
     void buildHeap(int n);
+    bool (*compare)(T a, T b);
+    static bool defaultComp(T a, T b) {
+        return a < b;
+    }
 
 public:
-    Heap(int capacity, int type);
-    Heap(int n, int type, T *arr);
+    Heap(int capacity, int type, bool (*func)(T a, T b) = defaultComp);
+    Heap(int n, int type, T *arr, bool (*func)(T a, T b) = defaultComp);
     void insert(T val);
     void remove();
     T getMax();
     T getMin();
     int size();
+
+    T *heapsortAsc();
+    T *heapsortDes();
 };
 
 template <class T>
-Heap<T>::Heap(int capacity, int type)
-    : capacity{capacity}, count{0}, heapType{type} {
-    if (this->capacity <= 0) this->capacity = 1;
-    array = new T[this->capacity];
+T *Heap<T>::heapsortAsc() {
+    // build heap max
+    for (int i = (count - 1) / 2; i >= 0; i--)
+        heapifyDownMax(i, count);
+    for (int i = count - 1; i > 0; i--) {
+        std::swap(array[0], array[i]);
+
+        heapifyDownMax(0, i);
+    }
+    T *sortedArray = new T[count];
+    for (int i = 0; i < count; i++)
+        sortedArray[i] = array[i];
+    buildHeap(count);
+    return sortedArray;
 }
 
 template <class T>
-Heap<T>::Heap(int n, int type, T *arr)
-    : Heap(1, type) {
+T *Heap<T>::heapsortDes() {
+    // build heap max
+    for (int i = (count - 1) / 2; i >= 0; i--)
+        heapifyDownMin(i, count);
+    for (int i = count - 1; i > 0; i--) {
+        std::swap(array[0], array[i]);
+
+        heapifyDownMin(0, i);
+    }
+    T *sortedArray = new T[count];
+    for (int i = 0; i < count; i++)
+        sortedArray[i] = array[i];
+    buildHeap(count);
+    return sortedArray;
+}
+
+template <class T>
+Heap<T>::Heap(int capacity, int type, bool (*func)(T a, T b))
+    : capacity{capacity}, count{0}, heapType{type} {
+    if (this->capacity <= 0) this->capacity = 1;
+    array = new T[this->capacity];
+    this->compare = func;
+}
+
+template <class T>
+Heap<T>::Heap(int n, int type, T *arr, bool (*func)(T a, T b))
+    : Heap(1, type, func) {
     count = n;
     while (n > capacity)
         this->resizeHeap();
@@ -77,9 +119,9 @@ void Heap<T>::heapifyDownMax(int index, int n) {
     int left = index * 2 + 1;
     int right = index * 2 + 2;
     int maxi = index;
-    if (left <= n && array[left] > array[maxi])
+    if (left < n && compare(array[maxi], array[left]))
         maxi = left;
-    if (right <= n && array[right] > array[maxi])
+    if (right < n && compare(array[maxi], array[right]))
         maxi = right;
     if (maxi != index) {
         std::swap(array[index], array[maxi]);
@@ -92,9 +134,9 @@ void Heap<T>::heapifyDownMin(int index, int n) {
     int left = index * 2 + 1;
     int right = index * 2 + 2;
     int maxi = index;
-    if (left <= n && array[left] < array[maxi])
+    if (left < n && compare(array[left], array[maxi]))
         maxi = left;
-    if (right <= n && array[right] < array[maxi])
+    if (right < n && compare(array[right], array[maxi]))
         maxi = right;
     if (maxi != index) {
         std::swap(array[index], array[maxi]);
@@ -110,7 +152,7 @@ void Heap<T>::heapifyUp(int index) {
 template <class T>
 void Heap<T>::heapifyUpMax(int index) {
     int parent = (index - 1) / 2;
-    while (index > 0 && array[index] > array[parent]) {
+    while (index > 0 && compare(array[parent] > array[index])) {
         std::swap(array[index], array[parent]);
         index = parent;
         parent = (index - 1) / 2;
@@ -120,7 +162,7 @@ void Heap<T>::heapifyUpMax(int index) {
 template <class T>
 void Heap<T>::heapifyUpMin(int index) {
     int parent = (index - 1) / 2;
-    while (index > 0 && array[index] < array[parent]) {
+    while (index > 0 && compare(array[index], array[parent])) {
         std::swap(array[index], array[parent]);
         index = parent;
         parent = (index - 1) / 2;
