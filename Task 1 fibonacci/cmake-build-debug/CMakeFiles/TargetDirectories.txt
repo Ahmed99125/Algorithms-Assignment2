@@ -1,3 +1,0 @@
-D:/College & courses/Algorithms/cmake-build-debug/CMakeFiles/Algorithms.dir
-D:/College & courses/Algorithms/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/College & courses/Algorithms/cmake-build-debug/CMakeFiles/rebuild_cache.dir
