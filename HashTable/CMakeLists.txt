@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.27)
-project(Assignment_2)
+project(HashTable)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(.)
+include_directories(..)
 
-add_executable(Assignment_2
+add_executable(HashTable
         HashTable.h
         main.cpp)
