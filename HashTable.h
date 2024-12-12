@@ -88,7 +88,7 @@ private:
     }
 
     int multiplicationMethod(int key) {
-        double A = 0.6180339887; // Golden ratio
+        double A = 0.6;
         double product = key * A;
         return (int)(tableSize * (product - (int)product));
     }
@@ -125,8 +125,7 @@ private:
     }
 
     int secondaryHash(int key) {
-        // Implement a secondary hash function as needed
-        return 7 - (key % 7); // Example: A simple secondary hash function
+        return 7 - (key % 7);
     }
 
     void doubleHashing(int key, int index) {
