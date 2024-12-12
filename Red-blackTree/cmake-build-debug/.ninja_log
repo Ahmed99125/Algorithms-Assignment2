@@ -1,0 +1,27 @@
+# ninja log v5
+0	288	7557268203792179	CMakeFiles/Red_blackTree.dir/main.cpp.obj	2c3efab3de651495
+290	394	7557268204823150	Red_blackTree.exe	59ffec26c811188c
+2	297	7557281164615553	CMakeFiles/Red_blackTree.dir/main.cpp.obj	2c3efab3de651495
+297	394	7557281165556410	Red_blackTree.exe	59ffec26c811188c
+3	283	7557281553316599	CMakeFiles/Red_blackTree.dir/main.cpp.obj	2c3efab3de651495
+284	363	7557281554087300	Red_blackTree.exe	59ffec26c811188c
+3	293	7557282143055931	CMakeFiles/Red_blackTree.dir/main.cpp.obj	2c3efab3de651495
+293	370	7557282143796599	Red_blackTree.exe	59ffec26c811188c
+2	308	7557289034420477	CMakeFiles/Red_blackTree.dir/main.cpp.obj	2c3efab3de651495
+308	397	7557289035281270	Red_blackTree.exe	59ffec26c811188c
+2	305	7557289950382543	CMakeFiles/Red_blackTree.dir/main.cpp.obj	2c3efab3de651495
+305	380	7557289951123218	Red_blackTree.exe	59ffec26c811188c
+2	290	7557290280140137	CMakeFiles/Red_blackTree.dir/main.cpp.obj	2c3efab3de651495
+290	366	7557290280880809	Red_blackTree.exe	59ffec26c811188c
+3	306	7557299974900876	CMakeFiles/Red_blackTree.dir/main.cpp.obj	2c3efab3de651495
+306	386	7557299975681590	Red_blackTree.exe	59ffec26c811188c
+2	278	7557300125094046	CMakeFiles/Red_blackTree.dir/main.cpp.obj	2c3efab3de651495
+278	354	7557300125824709	Red_blackTree.exe	59ffec26c811188c
+2	277	7557300793636542	CMakeFiles/Red_blackTree.dir/main.cpp.obj	2c3efab3de651495
+278	363	7557300794477304	Red_blackTree.exe	59ffec26c811188c
+3	276	7557300864710967	CMakeFiles/Red_blackTree.dir/main.cpp.obj	2c3efab3de651495
+276	364	7557300865541722	Red_blackTree.exe	59ffec26c811188c
+2	272	7557301468251750	CMakeFiles/Red_blackTree.dir/main.cpp.obj	2c3efab3de651495
+272	349	7557301469012440	Red_blackTree.exe	59ffec26c811188c
+3	275	7557301601044072	CMakeFiles/Red_blackTree.dir/main.cpp.obj	2c3efab3de651495
+276	354	7557301601814781	Red_blackTree.exe	59ffec26c811188c
